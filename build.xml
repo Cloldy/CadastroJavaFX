@@ -3,7 +3,8 @@
               Any modifications will be overwritten.
               To include a user specific buildfile here, simply create one in the same
               directory with the processing instruction <?eclipse.ant.import?>
-              as the first entry and export the buildfile again. --><project basedir="." default="build" name="AndressApp">
+              as the first entry and export the buildfile again. -->
+	<project basedir="." default="build" name="AndressApp">
     <property environment="env"/>
     <property name="ECLIPSE_HOME" value="../../../../opt/eclipse/"/>
     <property name="debuglevel" value="source,lines,vars"/>
@@ -19,6 +20,13 @@
         <path refid="Plug-in Dependencies.libraryclasspath"/>
         <pathelement location="lib/controlsfx-8.20.8/controlsfx-8.20.8.jar"/>
     </path>
+	<path id="fxant">
+		 <filelist>
+		   <file name="${java.home}\..\lib\ant-javafx.jar"/>
+		   <file name="${java.home}\lib\jfxrt.jar"/>
+		   <file name="${basedir}"/>
+		 </filelist>
+	</path>
     <target name="init">
         <mkdir dir="bin"/>
         <copy includeemptydirs="false" todir="bin">
